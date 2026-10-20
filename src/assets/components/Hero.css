@@ -1,0 +1,1189 @@
+/* ========================================
+   PREMIUM HERO
+======================================== */
+
+.hero-section {
+  position: relative;
+
+  min-height: 680px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(51, 111, 147, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(125, 79, 156, 0.15),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #06101d 0%,
+      #0a1727 45%,
+      #0d2032 100%
+    );
+
+  color: #ffffff;
+}
+
+
+/* ========================================
+   HERO CONTAINER
+======================================== */
+
+.hero-container {
+  position: relative;
+  z-index: 5;
+  width: min(1240px, calc(100% - 60px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(420px, 0.95fr);
+  align-items: center;
+  gap: 70px;
+  padding: 90px 0;
+}
+
+
+/* ========================================
+   BACKGROUND GRID
+======================================== */
+
+.hero-grid {
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.08;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent,
+      black 35%,
+      black 70%,
+      transparent
+    );
+}
+
+
+/* ========================================
+   BACKGROUND GLOWS
+======================================== */
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  pointer-events: none;
+
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+
+.hero-glow-one {
+  width: 380px;
+  height: 380px;
+
+  top: -180px;
+  right: 10%;
+
+  background: rgba(47, 130, 173, 0.20);
+}
+
+
+.hero-glow-two {
+  width: 300px;
+  height: 300px;
+
+  bottom: -150px;
+  left: 10%;
+
+  background: rgba(128, 77, 163, 0.15);
+
+  animation-delay: 2s;
+}
+
+
+@keyframes heroGlow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(30px, -20px, 0);
+  }
+}
+
+
+/* ========================================
+   FLOATING ORBS
+======================================== */
+
+.hero-orb {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(4px);
+
+  animation: floatingOrb 7s ease-in-out infinite;
+}
+
+
+.hero-orb-one {
+  width: 85px;
+  height: 85px;
+
+  top: 15%;
+  left: 4%;
+}
+
+
+.hero-orb-two {
+  width: 42px;
+  height: 42px;
+
+  right: 5%;
+  bottom: 20%;
+
+  animation-delay: 2s;
+}
+
+
+@keyframes floatingOrb {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+
+/* ========================================
+   HERO CONTENT
+======================================== */
+
+.hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  animation: heroContentIn 0.9s ease forwards;
+}
+
+
+@keyframes heroContentIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* ========================================
+   BADGE
+======================================== */
+
+.hero-badge {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 25px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 100px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.7px;
+
+  backdrop-filter: blur(12px);
+}
+
+
+.hero-badge-icon {
+  color: #e5bd72;
+
+  font-size: 13px;
+
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    opacity: 0.6;
+
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.1);
+  }
+}
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+
+.hero-title {
+  max-width: 800px;
+  margin: 0;
+  font-size: clamp(46px, 5vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -3.5px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero-title-highlight {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #e6bf79 30%,
+    #f1d29b 50%,
+    #8ec9df 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 220% auto;
+  animation: gradientMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 100% center;
+  }
+}
+
+
+/* .hero-title {
+  max-width: 750px;
+  margin: 0;
+  font-size: clamp(52px, 6vw, 82px);
+  line-height: 1;
+  letter-spacing: -4px;
+  font-weight: 700;
+}
+
+
+.hero-title-white {
+  color: #ffffff;
+}
+
+
+.hero-title-gradient {
+  background:
+    linear-gradient(
+      90deg,
+      #e6bf79 0%,
+      #f1d29b 35%,
+      #ffffff 55%,
+      #8ec9df 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  background-size: 220% auto;
+
+  animation:
+    gradientMove 5s ease-in-out infinite alternate;
+}
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 100% center;
+  }
+} */
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.hero-description {
+  max-width: 570px;
+
+  margin: 25px 0 0;
+
+  color: rgba(255, 255, 255, 0.63);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+
+  font-weight: 400;
+}
+
+
+/* ========================================
+   FEATURES
+======================================== */
+
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 25px;
+}
+
+
+.hero-feature {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+.hero-feature-icon {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffbe45;
+  font-size: 12px;
+}
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 32px;
+}
+
+
+.hero-primary-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 0 19px 0 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f0c77d,
+      #dba95e
+    );
+
+  color: #08131f;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 12px 30px rgba(222, 176, 94, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.hero-primary-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 17px 35px rgba(222, 176, 94, 0.28);
+}
+
+
+.hero-button-arrow {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.12);
+
+  font-size: 15px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.hero-primary-button:hover .hero-button-arrow {
+  transform: translateX(3px);
+}
+
+
+.hero-secondary-button {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 9px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transition:
+    background 0.3s ease,
+    border 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.hero-secondary-button:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* ========================================
+   TRUST
+======================================== */
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 23px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 13px;
+}
+
+
+.hero-trust-stars {
+  color: #e7bd75;
+
+  letter-spacing: 2px;
+}
+
+
+/* ========================================
+   HERO VISUAL
+======================================== */
+
+.hero-visual {
+  position: relative;
+
+  min-height: 470px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation:
+    heroVisualIn 1s ease 0.15s both;
+}
+
+
+@keyframes heroVisualIn {
+  from {
+    opacity: 0;
+
+    transform: translateX(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+.hero-visual-glow {
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(86, 164, 195, 0.22),
+      transparent 68%
+    );
+
+  filter: blur(15px);
+}
+
+
+/* ========================================
+   MAIN GLASS CARD
+======================================== */
+
+.hero-main-card {
+  position: relative;
+
+  width: 310px;
+  height: 400px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.035)
+    );
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(22px);
+
+  transform:
+    perspective(1000px)
+    rotateY(-8deg)
+    rotateX(3deg);
+
+  animation:
+    cardFloat 6s ease-in-out infinite;
+}
+
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform:
+      perspective(1000px)
+      rotateY(-8deg)
+      rotateX(3deg)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      perspective(1000px)
+      rotateY(-5deg)
+      rotateX(1deg)
+      translateY(-12px);
+  }
+}
+
+
+.hero-card-top,
+.hero-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.hero-card-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #e5bd72;
+
+  box-shadow:
+    0 0 15px rgba(229, 189, 114, 0.8);
+}
+
+
+.hero-card-center {
+  text-align: center;
+}
+
+
+.hero-card-circle {
+  width: 120px;
+  height: 120px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.17),
+      rgba(255, 255, 255, 0.025)
+    );
+
+  box-shadow:
+    0 0 50px rgba(100, 170, 200, 0.12);
+}
+
+
+.hero-card-circle span {
+  color: #e9c987;
+
+  font-size: 28px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.hero-card-center h3 {
+  margin: 0;
+
+  font-size: 27px;
+
+  line-height: 1.05;
+
+  font-weight: 600;
+
+  letter-spacing: -1px;
+}
+
+
+.hero-card-center p {
+  margin: 14px 0 0;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   FLOATING CARDS
+======================================== */
+
+.hero-floating-card {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  background:
+    rgba(15, 29, 44, 0.75);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.22);
+
+  backdrop-filter: blur(15px);
+
+  animation:
+    floatingCard 5s ease-in-out infinite;
+}
+
+
+.hero-floating-one {
+  top: 90px;
+  left: 5px;
+}
+
+
+.hero-floating-two {
+  right: 0;
+  bottom: 75px;
+
+  animation-delay: 1.5s;
+}
+
+
+@keyframes floatingCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+
+.floating-icon,
+.floating-check {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: #e7c17e;
+
+  font-size: 12px;
+}
+
+
+.floating-check {
+  color: #91d2bd;
+}
+
+
+.hero-floating-card div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.hero-floating-card strong {
+  color: #ffffff;
+
+  font-size: 10px;
+}
+
+
+.hero-floating-card small {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 8px;
+}
+
+
+/* ========================================
+   SCROLL
+======================================== */
+
+.hero-scroll {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 50%;
+  bottom: 25px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+}
+
+
+.hero-scroll-line {
+  width: 35px;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1050px) {
+
+  .hero-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(350px, 0.8fr);
+
+    gap: 35px;
+  }
+
+  .hero-title {
+    font-size: clamp(42px, 5vw, 62px);
+  }
+
+  .hero-main-card {
+    width: 280px;
+    height: 370px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .hero-section {
+    min-height: auto;
+  }
+
+
+  .hero-container {
+    width: calc(100% - 36px);
+
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    padding: 65px 0 90px;
+
+    text-align: center;
+  }
+
+
+  .hero-content {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+
+  .hero-badge {
+    margin-bottom: 20px;
+
+    font-size: 9px;
+  }
+
+
+  .hero-title {
+    max-width: 650px;
+
+    font-size: clamp(40px, 11vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+  }
+
+
+  .hero-description {
+    max-width: 550px;
+
+    font-size: 13px;
+
+    line-height: 1.75;
+  }
+
+
+  .hero-features {
+    justify-content: center;
+
+    gap: 12px;
+  }
+
+
+  .hero-feature {
+    font-size: 10px;
+  }
+
+
+  .hero-actions {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+
+  .hero-trust {
+    justify-content: center;
+
+    flex-wrap: wrap;
+  }
+
+
+  .hero-visual {
+    min-height: 430px;
+
+    width: 100%;
+  }
+
+
+  .hero-main-card {
+    width: 270px;
+    height: 350px;
+  }
+
+
+  .hero-floating-one {
+    left: calc(50% - 175px);
+  }
+
+
+  .hero-floating-two {
+    right: calc(50% - 175px);
+  }
+
+
+  .hero-scroll {
+    display: none;
+  }
+
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .hero-container {
+    width: calc(100% - 26px);
+
+    padding-top: 48px;
+  }
+
+
+  .hero-title {
+    font-size: 40px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .hero-description {
+    font-size: 12px;
+  }
+
+
+  .hero-features {
+    display: grid;
+
+    grid-template-columns: repeat(2, auto);
+
+    justify-content: center;
+  }
+
+
+  .hero-actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+
+  .hero-primary-button,
+  .hero-secondary-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+
+  .hero-visual {
+    min-height: 390px;
+  }
+
+
+  .hero-main-card {
+    width: 240px;
+    height: 320px;
+
+    border-radius: 20px;
+  }
+
+
+  .hero-card-circle {
+    width: 90px;
+    height: 90px;
+
+    margin-bottom: 18px;
+  }
+
+
+  .hero-card-circle span {
+    font-size: 22px;
+  }
+
+
+  .hero-card-center h3 {
+    font-size: 23px;
+  }
+
+
+  .hero-floating-card {
+    padding: 9px 10px;
+  }
+
+
+  .hero-floating-one {
+    left: 0;
+    top: 65px;
+  }
+
+
+  .hero-floating-two {
+    right: 0;
+    bottom: 45px;
+  }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-section *,
+  .hero-section *::before,
+  .hero-section *::after {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+}

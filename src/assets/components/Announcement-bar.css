@@ -1,0 +1,272 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+
+/* Announcement Bar */
+
+.announcement-bar {
+  position: relative;
+  width: 100%;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 50%,
+      rgba(255, 255, 255, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 190, 80, 0.06),
+      transparent 25%
+    ),
+    linear-gradient(
+      90deg,
+      #05070d 0%,
+      #0b1220 30%,
+      #111b2d 50%,
+      #0b1220 70%,
+      #05070d 100%
+    );
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #ffffff;
+
+  font-family:
+    "Inter",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+
+/* Subtle top highlight */
+
+.announcement-bar::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  opacity: 0.7;
+}
+
+
+/* Moving marquee */
+
+.announcement-track {
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  white-space: nowrap;
+
+  animation: announcement-marquee 30s linear infinite;
+
+  will-change: transform;
+}
+
+
+/* Individual announcement */
+
+.announcement-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 0 28px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* Premium star */
+
+.announcement-star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  color: #e8c27a;
+
+  text-shadow:
+    0 0 8px rgba(232, 194, 122, 0.45);
+
+  animation: star-glow 2.5s ease-in-out infinite;
+}
+
+
+/* Divider */
+
+.announcement-divider {
+  font-size: 7px;
+
+  color: #c9a96e;
+
+  opacity: 0.7;
+}
+
+
+/* Moving glow */
+
+.announcement-glow {
+  position: absolute;
+
+  width: 180px;
+  height: 80px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  filter: blur(45px);
+
+  pointer-events: none;
+
+  opacity: 0.18;
+}
+
+
+.announcement-glow-one {
+  left: 10%;
+
+  background: #315b9b;
+
+  animation: glow-move-one 6s ease-in-out infinite alternate;
+}
+
+
+.announcement-glow-two {
+  right: 10%;
+
+  background: #c59b55;
+
+  animation: glow-move-two 7s ease-in-out infinite alternate;
+}
+
+
+/* Marquee animation */
+
+@keyframes announcement-marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Star animation */
+
+@keyframes star-glow {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.18);
+  }
+}
+
+
+/* Glow animation */
+
+@keyframes glow-move-one {
+  from {
+    transform: translate(-20px, -50%);
+  }
+
+  to {
+    transform: translate(40px, -50%);
+  }
+}
+
+
+@keyframes glow-move-two {
+  from {
+    transform: translate(20px, -50%);
+  }
+
+  to {
+    transform: translate(-40px, -50%);
+  }
+}
+
+
+/* Pause when user hovers */
+
+.announcement-bar:hover .announcement-track {
+  animation-play-state: paused;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .announcement-bar {
+    height: 40px;
+  }
+
+  .announcement-item {
+    padding: 0 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+  }
+
+  .announcement-star {
+    font-size: 10px;
+  }
+
+  .announcement-track {
+    animation-duration: 23s;
+  }
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-track,
+  .announcement-star,
+  .announcement-glow-one,
+  .announcement-glow-two {
+    animation: none;
+  }
+}
